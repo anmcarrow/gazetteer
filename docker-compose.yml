@@ -5,6 +5,33 @@ services:
     container_name: muckraker-app 
     ports:
         - "8001:80"
+    
+    labels:
+      # Enable Traefik for this container
+      - "traefik.enable=true"
+      
+      # HTTP Router
+      - "traefik.http.routers.ouw-gazetteer.rule=Host(`${DOMAIN:-gazetteer.example.com}`)"
+      - "traefik.http.routers.ouw-gazetteer.entrypoints=http"
+      - "traefik.http.routers.ouw-gazetteer.service=ouw-gazetteer"
+      
+      # HTTPS Router
+      - "traefik.http.routers.ouw-gazetteer-secure.service=ouw-gazetteer"
+      - "traefik.http.routers.ouw-gazetteer-secure.rule=Host(`${DOMAIN:-gazetteer.example.com}`)"
+      - "traefik.http.routers.ouw-gazetteer-secure.entrypoints=https"
+      - "traefik.http.routers.ouw-gazetteer-secure.tls=true"
+      - "traefik.http.routers.ouw-gazetteer-secure.tls.certresolver=${CERT_RESOLVER:-http}"
+      
+      # Service definition
+      - "traefik.http.services.ouw-gazetteer.loadbalancer.server.port=80"
+      
+      # Middleware: HTTP to HTTPS redirect
+      - "traefik.http.middlewares.ouw-gazetteer-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.ouw-gazetteer-redirect.redirectscheme.permanent=true"
+      - "traefik.http.routers.ouw-gazetteer.middlewares=ouw-gazetteer-redirect"
+    
+    networks:
+      - ${TRAEFIK_NETWORK:-proxy}
 
     develop:
       # Create a `watch` configuration to update the app
@@ -22,3 +49,8 @@ services:
         # Rebuild the image if dependencies change by checking uv.lock
         - action: rebuild
           path: ./uv.lock
+
+networks:
+  proxy:
+#    external: true
+#    name: ${TRAEFIK_NETWORK:-traefik-network}
