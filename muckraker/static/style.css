@@ -1,26 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
 @font-face {
-  font-family: TT2020;
-  src: url(fonts/TT2020/TT2020Base-Regular.ttf) format('truetype');
-}
-@font-face {
-  font-family: TT2020;
-  src: url(fonts/TT2020/TT2020Base-Italic.ttf) format('truetype');
-  font-style: italic;
-}
-@font-face {
-  font-family: TT2020;
-  src: url(fonts/TT2020/TT2020StyleE-Regular.ttf) format('truetype');
-  font-weight: bold;
-}
-@font-face {
-  font-family: TT2020;
-  src: url(fonts/TT2020/TT2020StyleE-Italic.ttf) format('truetype');
-  font-weight: bold;
-  font-style: italic;
-}
-@font-face {
-  font-family: KJV1611;
-  src: url(fonts/KJV1611/KJV1611.otf) format('opentype');
+  font-family: ExMarina;
+  src: url(fonts/exmarina/exmarina.ttf) format('truetype');
 }
 
 
@@ -66,7 +48,7 @@
 
 html {
     font-size: 10pt;
-    font-family: TT2020;
+    font-family: "EB Garamond", serif;
 }
 
 header h1, h2 {
@@ -75,7 +57,7 @@ header h1, h2 {
 }
 header h1 {
     string-set: title content();
-    font-family: KJV1611;
+    font-family: ExMarina, serif;
     font-size: 38pt;
 }
 header h2 {
