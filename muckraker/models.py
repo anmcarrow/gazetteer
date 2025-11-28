@@ -3,7 +3,7 @@ from typing import Literal, Optional
 
 from pydantic import BaseModel, Field, field_validator, model_validator
 
-MAX_BODY_LEN = 6000
+MAX_BODY_LEN = 20000
 MAX_STR_LEN = 50
 
 
