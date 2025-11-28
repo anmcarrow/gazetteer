@@ -4,7 +4,7 @@
 /*   Fonts & Imports  ========================================================================================================= */
 /* ============================================================================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Alice:ital,wght@0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:ital,wght@0,400;1,400&display=swap');
 
 @font-face {
@@ -60,14 +60,14 @@ html {
 /*
     1) Set the base font-size to 18px with a normal weight.
     2) Set the text and background colors to match the theme.
-    3) Use the 'Alice' font for the body text.
+    3) Use the 'EB Garamond' font for the body text.
     4) Reset the counter for sidenotes.
 */
 body {
     font-size: 1.8rem; /* 1 */
     background-color: var(--bg); /* 2 */
     color: var(--fg); /* 2 */
-    font-family: "Alice", serif; /* 3 */
+    font-family: "EB Garamond", serif; /* 3 */
     font-style: normal; /* 3 */
     line-height: 2.2rem; /* 3 */
     font-weight: 300; /* 3 */

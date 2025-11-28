@@ -94,10 +94,11 @@ main h2 {
 }
 main p{
     font-size: 10pt;
+    line-height: 120%;
 }
 
 .columns {
-    column-count: 2;
+    column-count: 3;
     column-rule: 0.2mm solid black;
 }
 .columns img {

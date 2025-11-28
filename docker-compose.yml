@@ -33,6 +33,7 @@ services:
     networks:
       - ${TRAEFIK_NETWORK:-proxy}
 
+
     develop:
       # Create a `watch` configuration to update the app
       # https://docs.docker.com/compose/file-watch/#compose-watch-versus-bind-mounts
@@ -48,7 +49,8 @@ services:
 
         # Rebuild the image if dependencies change by checking uv.lock
         - action: rebuild
-          path: ./uv.lock
+          #path: ./uv.lock
+          path: .
 
 networks:
   proxy:
